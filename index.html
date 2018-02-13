@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School System</title>
+    <script src="objects.js"></script>
+    <script src="data.js"></script>
+    <script src="action.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body onload="fillLists(); hideInfo()">
+
+<h1>School Management</h1>
+<br>
+<h2>Options:</h2>
+
+<table id="options" cellpadding="25">
+    <tr>
+        <td>
+            <h3><a href="#" onClick="hideInfo('divOne')">List items in the school</a></h3>
+
+        </td>
+        <td>
+            <h3><a href="#" onClick ="hideInfo('divTwo')"></a> Add a student:</h3>
+        </td>
+        <td>
+            <h3> Add a section: </h3>
+        </td>
+        <td>
+            <h3> Add a student to a section:</h3>
+        </td>
+        <td>
+            <h3> Remove a student from a section: </h3>
+        </td>
+        <td>
+            <h3> List a sections information: </h3>
+        </td>
+        <td>
+            <h3> Search for a student: </h3>
+        </td>
+    </tr>
+</table>
+<br>
+
+<div id = "divOne" class = "display" align = "center">
+    <select id = "listItems">
+        <option value = "1"> Students </option>
+        <option value = "2"> Teachers </option>
+        <option value = "3"> Sections </option>
+    </select>
+    <button id="list" onclick = "list()" > List Items</button>
+    <br>
+    <table id = "listing" class = "things" border="1" cellspacing="1" cellpadding="20"></table>
+</div>
+
+<div id = "divTwo" class = "display">
+    <br>
+    <input id = "studentFirst" type = "text" placeholder="first name" class = "studentBox">
+    <input id = "studentLast" type = "text" placeholder="last name" class = "studentBox">
+    <input id = "studentGrade" type = "text" placeholder="grade" class = "studentBox">
+    <button id = "student" onclick = "addStudent(); fillLists()"> Add Student</button>
+    <br>
+    <br>
+    <div id = "confirmStudent" class = "divTwo output"></div>
+    <br>
+    <input id = "teacherFirst" type = "text" placeholder="first name" class = "teacherBox">
+    <input id = "teacherLast" type = "text" placeholder="last name" class = "teacherBox">
+    <input id = "teacherSubject" type = "text" placeholder="subject" class = "teacherBox">
+    <button id = "teacher" onclick = "addTeacher()"> Add Teacher</button>
+</div>
+<br>
+<br>
+<div id = "confirmTeacher" class = "divTwo output"></div>
+<div id = "error" class = "divTwo output"></div>
+
+<div id = "divThree" class = "display">
+    <input id = "sectionName" type = "text" placeholder = "section name" class = "sectionBox">
+    <input id = "sectionSize" type = "text" placeholder = "max number of students" class = "sectionBox">
+    <input id = "sectionTeacher" type = "text" placeholder = "teacher" class = "sectionBox">
+    <button id = "subject" onclick = "addSection(); fillLists()" > Add Section </button>
+</div>
+<div id = "confirmSection" class = "divThree output"></div>
+<div id = "divFour" class = "display">
+    <br>
+    <select id = "students">
+        <option value = "0">select a student</option>
+    </select>
+    <select id = "sections">
+        <option value = "0">select a section</option>
+    </select>
+    <button id = "add" onclick = "addStudentToSection()" > Add student to section </button>
+</div>
+<div id = "confirmAddition" class = "divFour output"></div>
+<div id = "divFive" class = "display">
+    <br>
+    <select id = "students2">
+        <option value = "0">Select a student</option>
+    </select>
+    <select id = "sections2">
+        <option value = "0">Select a section</option>
+    </select>
+    <button id = "remove" onclick = "removeStudentFromSection()">Remove student from section</button>
+</div>
+<div id = "divSix" class = "display">
+    <br>
+    <select id = "allSections" ></select>
+    <button id = "sectionInfo" onclick = "listSections()">List section information</button>
+    <table id = "sectionInformation" class = "things" border = "1" cellspacing = "0" cellpadding = "20"></table>
+</div>
+<br>
+<div id = "studentsEnrolled" class = "divSix output"></div>
+<div id = "divSeven" class = "display">
+    <select id = "getStudents" ></select>
+    <button id = "searchStudent" onclick = "searchStudent()"> Get student's information </button>
+    <br>
+    <br>
+    <table id = "studentSearched" border = "1" cellspacing = "0" cellpadding = "20"></table>
+</div>
+
+
+</body>
+</html>

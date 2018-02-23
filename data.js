@@ -2,11 +2,11 @@ var allStudents = [];
 var allTeachers = [];
 var allSections = [];
 
-allStudents.push(new Student("Joe","Cohn",11));
-allStudents.push(new Student("Jane","Smith",12));
-allStudents.push(new Student("Trent","Arrington",10));
-allStudents.push(new Student("Becky","Powers",9));
-allStudents.push(new Student("Jen","Ramirez",12));
+allStudents.push(new Student("Tara ","Steckler",12));
+allStudents.push(new Student("Adin","GC",12));
+allStudents.push(new Student("Leah","Kirsch",12));
+allStudents.push(new Student("John","Doe",9));
+allStudents.push(new Student("Jane","Doe",12));
 
 allTeachers.push(new Teacher("Steve","Beatty","Physics"));
 allTeachers.push(new Teacher("Nakia","Baird","Math"));
@@ -15,10 +15,9 @@ allTeachers.push(new Teacher("Matt","Albinson","CS"));
 allTeachers.push(new Teacher("Carl","Rogers","English"));
 
 allSections.push(new Section("Physics",30));
-allSections.push(new Section("Math 3",25));
-allSections.push(new Section("US History",30));
-allSections.push(new Section("CS",32));
+allSections.push(new Section("AP Calc BC",25));
+allSections.push(new Section("IB US History",30));
+allSections.push(new Section("Computer Science",32));
 allSections.push(new Section("English",30));
 
-var allItems = [allStudents,allTeachers,allSections];
 

@@ -1,6 +1,3 @@
-var allStudents = [];
-var allTeachers = [];
-var allSections = [];
 var school = [];
 
 
@@ -27,7 +24,7 @@ function addTeacher (){
     var teacher = new Teacher (first, last, subject);
     allTeachers.push(teacher);
     school.push(teacher);
-    document.getElementById("confirmTeacher").innerHTML = teacher.firstName + " " + teacher.lastName + " has been added.";
+    document.getElementById("addingTeachers").innerHTML += "<br>" + teacher.firstName + " " + teacher.lastName + " has been added.";
     clearBoxes("teacherBox");
 }
 
@@ -47,7 +44,14 @@ function hideInfo (divToShow){
     for (var i = 0; i < divsToHide.length; i++){
         divsToHide[i].style.display = "none";
     }
-    document.getElementById(divToShow).style.display = "inline"
+    if(divToShow!=0) {
+        document.getElementById(divToShow).style.display = "inline";
+        document.getElementById("error").innerHTML = "";
+        document.getElementById("confirmStudent").innerHTML = "";
+        document.getElementById("confirmSection").innerHTML = "";
+        document.getElementById("confirmAddition").innerHTML = "";
+        document.getElementById("confirmRemoval").innerHTML = "";
+    }
 }
 
 
@@ -92,19 +96,20 @@ function addStudentToSection(){
     section.students.push(student);
     section.currentsize ++;
     section.spaceremaining --;
-    document.getElementById("confirmAddition").innerHTML = student.firstName + student.lastName + " added to " + section.name + ".";
+    document.getElementById("confirmAddition").innerHTML = student.firstName + " " + student.lastName + " added to " + section.name + ".";
 }
 
 function removeStudentFromSection(){
    var studentToRemoveId = parseInt(document.getElementById("students2").value);
    var sectionToRemoveFromId = parseInt(document.getElementById("sections2").value);
+   console.log(sectionToRemoveFromId);
    var studentToRemove = getStudentById(studentToRemoveId);
    var sectionToRemoveFrom = getSectionById(sectionToRemoveFromId);
    var index = sectionToRemoveFrom.students.indexOf(studentToRemove);
-   sectionToRemoveFrom.student.splice(index, 1);
+   sectionToRemoveFrom.students.splice(index, 1);
    sectionToRemoveFrom.spaceremaining ++;
    sectionToRemoveFrom.currentsize --;
-   document.getElementById("confirmRemoval").innerHTML = studentToRemove.firstName + studentToRemove.lastName + " removed from " + sectionToRemoveFrom.name +".";
+   document.getElementById("confirmRemoval").innerHTML = studentToRemove.firstName + " " + studentToRemove.lastName + " removed from " + sectionToRemoveFrom.name +".";
 }
 
 function clearBoxes (elements){
@@ -117,7 +122,6 @@ function clearBoxes (elements){
 }
 
 
-
 function listSections(){
    document.getElementById("sectionInformation").innerHTML = "";
    document.getElementById("studentsEnrolled").innerHTML = "";
@@ -128,33 +132,35 @@ function listSections(){
             console.log(allSections[i]);
             console.log(allSections[i]);
             var getSection = allSections[i];
-            output += "<tr><td>" + "name" + "</td>";
-            output += "<td>" + "teacher" + "</td>";
-            output += "<td>" + "max size" + "</td>";
-            output += "<td>" + "current size" + "</td>";
-            output += "<td>" + "space remaining" + "</td>";
-            output += "<td>" + "students enrolled" + "</td>";
-            output += "<td></tr><td>" + getSection.name + "</td>";
+            output += "<tr><td>" + "NAME" + "</td>";
+            output += "<td>" + "TEACHER" + "</td>";
+            output += "<td>" + "MAXIMUM SIZE" + "</td>";
+            output += "<td>" + "CURRENT SIZE" + "</td>";
+            output += "<td>" + "SPACE REMAINING" + "</td>";
+            output += "<td>" + "STUDENTS ENROLLED" + "</td>";
+            output += "<tr></tr><td>" + getSection.name + "</td>";
             output += "<td>" + getSection.teacher + "</td>";
             output += "<td>" + getSection.size + "</td>";
             output += "<td>" + getSection.currentsize + "</td>";
             output += "<td>" + getSection.spaceremaining + "</td>";
-            output += "<td>" + "<button id = 'listStudents' onclick = 'listStudents()' > click to see enrolled students</button>" + "</td>";
+            output += "<td>" + "<button id = 'listStudents' onclick = 'listStudents(" + allSections[i].id + ")' > click to see enrolled students</button>" + "</td>";
             document.getElementById("sectionInformation").innerHTML = output;
             return;
         }
     }
 }
 
-function listStudents(){
-    var id = parseInt(document.getElementById("allSections").value);
+function listStudents(id){
+    if(id.length<1) {
+        id = parseInt(document.getElementById("allSections").value);
+    }
     for (var i = 0; i < allSections.length; i++){
-        if(allSections[i] == id){
+        if(allSections[i].id == id){
             var getSection = allSections[i];
             if(getSection.currentSize == 0){
                 document.getElementById("studentsEnrolled").innerHTML = "No students currently enrolled in " + getSection.name + ".";
             }
-            for(var a = 0; a < getSection.students.length; a++){
+            for(var x = 0; x < getSection.students.length; x++){
                 document.getElementById("studentsEnrolled").innerHTML += getSection.students[x].firstName + " " + getSection.students[x].lastName + "<br>";
             }
             return;
@@ -163,9 +169,10 @@ function listStudents(){
 }
 
 function list(){
+    console.log(allStudents);
    var  output = "";
     if (document.getElementById("listItems").value == "1"){
-        output += "<tr id = 'theList'><td>" + "FIRST NAME" +"</td>";
+        output += "<tr id = 'theList' ><td>" + "FIRST NAME" +"</td>";
         output += "<td>" + "LAST NAME" +"</td>";
         output += "<td>" + "GRADE" +"</td>";
         for (var i = 0; i < allStudents.length; i++){
@@ -198,6 +205,7 @@ function list(){
 }
 
 function fillLists() {
+    console.log(allStudents);
     document.getElementById("students").innerHTML = "<option value = '0'>Select a student</option>";
     for (var i = 0; i < allStudents.length; i++) {
         document.getElementById("students").innerHTML += "<option value = '" + allStudents[i].id + "'>" + allStudents[i].firstName + " " + allStudents[i].lastName + "</option>";

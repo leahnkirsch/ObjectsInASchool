@@ -1,9 +1,21 @@
 body {
-    font-family: "fantasy";
+    font-family: "Courier New";
     vertical-align: top;
     color: black;
     font-size: 13px;
     text-align: center;
-    background-color: #ffc5c1;
+    background-image: url(https://naldzgraphics.net/wp-content/uploads/2012/08/28-Pristine.jpg);
+    background-size: 57%;
 }
 
+button {
+    background-color: lightslategray;
+    border: darkgrey;
+    color: whitesmoke;
+    font-family: "Courier New";
+    padding: 4px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+
+}

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css"/>
 
 </head>
-<body onload="fillLists(); hideInfo()">
+<body onload="fillLists(); hideInfo(0)">
 
 <h1>School Management</h1>
 <br>
@@ -18,32 +18,34 @@
 <table id="options" cellpadding="25">
     <tr>
         <td>
-            <h3><a href="#" onClick="hideInfo('divOne')">List items in the school</a></h3>
-
+            <h3><a href="#" onClick="hideInfo('listingDiv')">List items in the school</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('divTwo')"></a> Add a student:</h3>
+            <h3><a href="#" onClick ="hideInfo('addingStudents')"> Add a student:</a></h3>
         </td>
         <td>
-            <h3> Add a section: </h3>
+            <h3><a href="#" onClick ="hideInfo('addingTeachers')"> Add a teacher:</a></h3>
         </td>
         <td>
-            <h3> Add a student to a section:</h3>
+            <h3><a href="#" onClick ="hideInfo('addingSections')">Add a section:</a></h3>
         </td>
         <td>
-            <h3> Remove a student from a section: </h3>
+            <h3><a href="#" onClick ="hideInfo('addingStudentsToSection')">Add a student to a section:</a></h3>
         </td>
         <td>
-            <h3> List a sections information: </h3>
+            <h3><a href="#" onClick ="hideInfo('removingStudentsFromSection')"> Remove a student from a section:</a></h3>
         </td>
         <td>
-            <h3> Search for a student: </h3>
+            <h3><a href="#" onClick ="hideInfo('listingSectionInfo')"> List a section's information:</a></h3>
+        </td>
+        <td>
+            <h3><a href="#" onClick ="hideInfo('searchingStudents')"> Search for a student:</a></h3>
         </td>
     </tr>
 </table>
 <br>
 
-<div id = "divOne" class = "display" align = "center">
+<div id = "listingDiv" class = "display" align = "center">
     <select id = "listItems">
         <option value = "1"> Students </option>
         <option value = "2"> Teachers </option>
@@ -51,10 +53,11 @@
     </select>
     <button id="list" onclick = "list()" > List Items</button>
     <br>
-    <table id = "listing" class = "things" border="1" cellspacing="1" cellpadding="20"></table>
+    <br>
+    <table id = "listing" class = "things" border="1" cellspacing="1" cellpadding="20" align = "center"></table>
 </div>
 
-<div id = "divTwo" class = "display">
+<div id = "addingStudents" class = "display">
     <br>
     <input id = "studentFirst" type = "text" placeholder="first name" class = "studentBox">
     <input id = "studentLast" type = "text" placeholder="last name" class = "studentBox">
@@ -64,6 +67,9 @@
     <br>
     <div id = "confirmStudent" class = "divTwo output"></div>
     <br>
+</div>
+<div id = "addingTeachers" class = "display">
+    <br>
     <input id = "teacherFirst" type = "text" placeholder="first name" class = "teacherBox">
     <input id = "teacherLast" type = "text" placeholder="last name" class = "teacherBox">
     <input id = "teacherSubject" type = "text" placeholder="subject" class = "teacherBox">
@@ -71,17 +77,16 @@
 </div>
 <br>
 <br>
-<div id = "confirmTeacher" class = "divTwo output"></div>
 <div id = "error" class = "divTwo output"></div>
 
-<div id = "divThree" class = "display">
+<div id = "addingSections" class = "display">
     <input id = "sectionName" type = "text" placeholder = "section name" class = "sectionBox">
     <input id = "sectionSize" type = "text" placeholder = "max number of students" class = "sectionBox">
     <input id = "sectionTeacher" type = "text" placeholder = "teacher" class = "sectionBox">
     <button id = "subject" onclick = "addSection(); fillLists()" > Add Section </button>
 </div>
 <div id = "confirmSection" class = "divThree output"></div>
-<div id = "divFour" class = "display">
+<div id = "addingStudentsToSection" class = "display">
     <br>
     <select id = "students">
         <option value = "0">select a student</option>
@@ -92,7 +97,7 @@
     <button id = "add" onclick = "addStudentToSection()" > Add student to section </button>
 </div>
 <div id = "confirmAddition" class = "divFour output"></div>
-<div id = "divFive" class = "display">
+<div id = "removingStudentsFromSection" class = "display">
     <br>
     <select id = "students2">
         <option value = "0">Select a student</option>
@@ -101,21 +106,24 @@
         <option value = "0">Select a section</option>
     </select>
     <button id = "remove" onclick = "removeStudentFromSection()">Remove student from section</button>
+    <div id = "confirmRemoval" class = "divFive output"></div>
 </div>
-<div id = "divSix" class = "display">
+<div id = "listingSectionInfo" class = "display">
     <br>
     <select id = "allSections" ></select>
     <button id = "sectionInfo" onclick = "listSections()">List section information</button>
-    <table id = "sectionInformation" class = "things" border = "1" cellspacing = "0" cellpadding = "20"></table>
+    <br>
+    <br>
+    <table id = "sectionInformation" class = "things" border = "1" cellspacing = "0" cellpadding = "20" align = "center" ></table>
 </div>
 <br>
-<div id = "studentsEnrolled" class = "divSix output"></div>
-<div id = "divSeven" class = "display">
+<div id = "studentsEnrolled" class = "listingSectionInfo output"></div>
+<div id = "searchingStudents" class = "display">
     <select id = "getStudents" ></select>
     <button id = "searchStudent" onclick = "searchStudent()"> Get student's information </button>
     <br>
     <br>
-    <table id = "studentSearched" border = "1" cellspacing = "0" cellpadding = "20"></table>
+    <table id = "studentSearched" border = "1" cellspacing = "0" cellpadding = "20" align = "center"></table>
 </div>
 
 

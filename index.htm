@@ -7,39 +7,51 @@
     <script src="data.js"></script>
     <script src="action.js"></script>
     <link rel="stylesheet" href="style.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+
+
 
 </head>
 <body onload="fillLists(); hideInfo(0)">
 
-<h1>School Management</h1>
-<br>
-<h2>Options:</h2>
+<h1 class = "heading">School Management</h1>
+
+<h2 class = "heading2">Options:</h2>
 
 <table id="options" cellpadding="25">
     <tr>
         <td>
-            <h3><a href="#" onClick="hideInfo('listingDiv')">List items in the school</a></h3>
+            <i class="fas fa-list-ul"></i>
+            <h3 class = "headers"><a href="#" onClick="hideInfo('listingDiv')">List items in the school</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('addingStudents')"> Add a student:</a></h3>
+            <i class="fas fa-user-plus"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('addingStudents')"> Add a student:</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('addingTeachers')"> Add a teacher:</a></h3>
+            <i class="fas fa-user-plus"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('addingTeachers')"> Add a teacher:</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('addingSections')">Add a section:</a></h3>
+            <i class="far fa-address-book"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('addingSections')">Add a section:</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('addingStudentsToSection')">Add a student to a section:</a></h3>
+            <i class="far fa-plus-square"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('addingStudentsToSection')">Add a student to a section:</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('removingStudentsFromSection')"> Remove a student from a section:</a></h3>
+            <i class="far fa-minus-square"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('removingStudentsFromSection')"> Remove a student from a section:</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('listingSectionInfo')"> List a section's information:</a></h3>
+            <i class="fas fa-list-ul"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('listingSectionInfo')"> List a section's information:</a></h3>
         </td>
         <td>
-            <h3><a href="#" onClick ="hideInfo('searchingStudents')"> Search for a student:</a></h3>
+            <i class="fas fa-search"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('searchingStudents')"> Search for a student:</a></h3>
         </td>
     </tr>
 </table>

@@ -47,6 +47,7 @@ function hideInfo (divToShow){
     if(divToShow!=0) {
         document.getElementById(divToShow).style.display = "inline";
         document.getElementById("error").innerHTML = "";
+        document.getElementById("sectionInformation").innerHTML = "";
         document.getElementById("confirmStudent").innerHTML = "";
         document.getElementById("confirmSection").innerHTML = "";
         document.getElementById("confirmAddition").innerHTML = "";

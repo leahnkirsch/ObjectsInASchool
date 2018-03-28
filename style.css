@@ -1,21 +1,41 @@
 body {
-    font-family: "Courier New";
+    font-family: sans-serif;
     vertical-align: top;
     color: black;
     font-size: 13px;
     text-align: center;
-    background-image: url(https://naldzgraphics.net/wp-content/uploads/2012/08/28-Pristine.jpg);
-    background-size: 57%;
+    font-weight: 100;
+    background-image: url(https://www.drmaxlingo.com/wp-content/uploads/2015/10/background-1150x571.png);
+    background-size: 110%;
 }
 
 button {
     background-color: lightslategray;
     border: darkgrey;
     color: whitesmoke;
-    font-family: "Courier New";
+    font-family:sans-serif;
+    font-weight:100;
     padding: 4px 10px;
     text-align: center;
     display: inline-block;
     font-size: 18px;
 
+}
+
+.heading{
+    font-size: xx-large;
+    font-weight:100;
+}
+
+.heading2{
+    font-weight:100;
+    font-size:170%;
+}
+.headers    {
+    font-weight: 100;
+    font-size: larger;
+}
+
+.display{
+    font-weight:100;
 }

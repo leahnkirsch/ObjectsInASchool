@@ -1,12 +1,12 @@
 var studentId = 1;
 var sectionId = 1;
 
-function Student(firstName, lastName, grade){
+function Student(firstName, lastName, grade, sections){
     this.id = studentId++;
     this.firstName = firstName;
     this.lastName = lastName;
     this.grade = grade;
-    this.sections = [];
+    this.sections = sections;
 }
 
 function Teacher(firstName, lastName, subject){

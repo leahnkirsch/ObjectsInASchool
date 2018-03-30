@@ -1,6 +1,8 @@
 var school = [];
 
 
+
+
 function addStudent(){
     var first = document.getElementById("studentFirst").value;
     var last = document.getElementById("studentLast").value;
@@ -176,10 +178,12 @@ function list(){
         output += "<tr id = 'theList' ><td>" + "FIRST NAME" +"</td>";
         output += "<td>" + "LAST NAME" +"</td>";
         output += "<td>" + "GRADE" +"</td>";
+        output += "<td>" + "SECTIONS" +"</td>";
         for (var i = 0; i < allStudents.length; i++){
             output += "<tr><td>" + allStudents[i].firstName + "</td>";
             output += "<td>" + allStudents[i].lastName + "</td>";
             output += "<td>" + allStudents[i].grade + "</td></tr>";
+            output += "<td>" + allStudents[i].sections + "</td></tr>";
         }
     }
     if (document.getElementById("listItems").value == "2"){
@@ -209,7 +213,8 @@ function fillLists() {
     console.log(allStudents);
     document.getElementById("students").innerHTML = "<option value = '0'>Select a student</option>";
     for (var i = 0; i < allStudents.length; i++) {
-        document.getElementById("students").innerHTML += "<option value = '" + allStudents[i].id + "'>" + allStudents[i].firstName + " " + allStudents[i].lastName + "</option>";
+        document.getElementById("students").innerHTML += "<option value = '" + allStudents[i].id + "'>" + allStudents[i].firstName + " "
+            + allStudents[i].lastName + "</option>";
     }
     document.getElementById("sections").innerHTML = "<option value = '0'>Select a section</option>";
     for (var a = 0; a < allSections.length; a++) {
@@ -221,7 +226,8 @@ function fillLists() {
     }
     document.getElementById("students2").innerHTML = "<option value = '0'>Select a student</option>";
     for (var c = 0; c < allStudents.length; c++) {
-        document.getElementById("students2").innerHTML += "<option value = '" + allStudents[c].id + "'>" + allStudents[c].firstName + " " + allStudents[c].lastName + "</option>";
+        document.getElementById("students2").innerHTML += "<option value = '" + allStudents[c].id + "'>" + allStudents[c].firstName + " "
+            + allStudents[c].lastName + "</option>";
     }
     document.getElementById("sections2").innerHTML = "<option value = '0'>Select a section</option>";
     for (var d = 0; d < allSections.length; d++) {
@@ -229,6 +235,7 @@ function fillLists() {
     }
     document.getElementById("getStudents").innerHTML = "<option value = '0'>Select a student to learn about</option>";
     for (var e = 0; e < allStudents.length; e++) {
-        document.getElementById("getStudents").innerHTML += "<option value = '" + allStudents[e].id + "'>" + allStudents[e].firstName + " " + allStudents[e].lastName + "</option>";
+        document.getElementById("getStudents").innerHTML += "<option value = '" + allStudents[e].id + "'>" + allStudents[e].firstName + " "
+            + allStudents[e].lastName + "</option>";
     }
 }

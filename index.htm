@@ -15,7 +15,23 @@
 </head>
 <body onload="fillLists(); hideInfo(0)">
 
-<h1 class = "heading">School Management</h1>
+
+<script type="text/javascript">
+    for(var i = 0; i<1; i++) {
+        var password = "password";
+        var x = prompt("Enter in the password ", " ");
+        if (x.toLowerCase() == password) {
+            alert("Correct, welcome!");
+        }
+        else {
+            alert("Incorrect, try again.");
+            window.location = "index.htm";
+        }
+    }
+</script>
+
+
+<h1 class = "heading">School Management 101</h1>
 
 <h2 class = "heading2">Options:</h2>
 
@@ -24,6 +40,10 @@
         <td>
             <i class="fas fa-list-ul"></i>
             <h3 class = "headers"><a href="#" onClick="hideInfo('listingDiv')">List items in the school</a></h3>
+        </td>
+        <td>
+            <i class="fas fa-list-ul"></i>
+            <h3 class = "headers"><a href="#" onClick ="hideInfo('listingSectionInfo')"> List a section's information:</a></h3>
         </td>
         <td>
             <i class="fas fa-user-plus"></i>
@@ -44,10 +64,6 @@
         <td>
             <i class="far fa-minus-square"></i>
             <h3 class = "headers"><a href="#" onClick ="hideInfo('removingStudentsFromSection')"> Remove a student from a section:</a></h3>
-        </td>
-        <td>
-            <i class="fas fa-list-ul"></i>
-            <h3 class = "headers"><a href="#" onClick ="hideInfo('listingSectionInfo')"> List a section's information:</a></h3>
         </td>
         <td>
             <i class="fas fa-search"></i>
